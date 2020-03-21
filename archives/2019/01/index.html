@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>flex布局 | LJ</title>
+  <title>Archives: 2019/1 | LJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工作中使用定位进行布局已经非常熟悉了，以致于不习惯用flex。特地总结一下flex，希望以后能更熟练的使用这个超强属性，哈哈。妈妈再也不用担心我的vertical：middle了。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="flex布局">
-<meta property="og:url" content="http://yoursite.com/2017/11/15/flex/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="LJ">
+<meta property="og:url" content="http://yoursite.com/archives/2019/01/index.html">
 <meta property="og:site_name" content="LJ">
-<meta property="og:description" content="工作中使用定位进行布局已经非常熟悉了，以致于不习惯用flex。特地总结一下flex，希望以后能更熟练的使用这个超强属性，哈哈。妈妈再也不用担心我的vertical：middle了。">
 <meta property="og:locale" content="ch">
-<meta property="article:published_time" content="2017-11-15T03:53:25.000Z">
-<meta property="article:modified_time" content="2020-03-21T06:17:58.878Z">
 <meta property="article:author" content="LJ">
-<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LJ" type="application/atom+xml">
@@ -163,150 +158,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-flex" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      flex布局
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/01/10/react-render/" class="archive-article-date">
+  	<time datetime="2019-01-10T09:38:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/01/10/react-render/">react虚拟Dom</a>
     </h1>
   
 
-        
-        <a href="/2017/11/15/flex/" class="archive-article-date">
-  	<time datetime="2017-11-15T03:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>工作中使用定位进行布局已经非常熟悉了，以致于不习惯用flex。<br>特地总结一下flex，希望以后能更熟练的使用这个超强属性，哈哈。<br>妈妈再也不用担心我的vertical：middle了。</p>
-<a id="more"></a>
-
-
-<p>这里参考了很多阮一峰老师的博客内容和MDN<br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">指路阮一峰</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex" target="_blank" rel="noopener">指路MDN</a></p>
-<p>内容很多，图片也很多就不贴了，主要还是自己的理解、吸收。</p>
-<p>flex布局有很多的说法，名字（伸缩布局 弹性盒子）<br>主要涉及的是两层包裹的容器布局，即父子嵌套盒子的布局。<br>很多父子嵌套盒子的布局能用到这种方式。最明显的就是ul&gt;li 这一类了。<br>还有一些是后单独的小模块中内容需要垂直居中，或者左右分布，间隔分布，用flex都是很好的选择。</p>
-<p>下面就具体看看flex的具体内容吧<br>分两个部分，父元素和子元素。</p>
-<h2 id="父元素-display：flex"><a href="#父元素-display：flex" class="headerlink" title="父元素 display：flex"></a>父元素 display：flex</h2><p>父元素中的属性 </p>
-<ul>
-<li><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><p>设置子元素的排列方向<br>flex-direction：row 默认水平方向<br>flex-direction：column 纵向<br>flex-direction：row-reverse  水平翻转<br>flex-direction：column-reverse 纵向翻转</p>
-</li>
-<li><h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p>子元素超过容器宽高是否换行<br>flex-wrap：nowrap 默认不换行<br>flex-wrap：wrap   换行<br>flex-wrap：wrap-reverse 行翻转</p>
-</li>
-<li><h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><p>前两个属性的复合写法<br>flex-flow：row nowrap默认水平不换行</p>
-</li>
-<li><h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><p>水平对齐方式<br>justify-content: flex-start 左对齐<br>justify-content: flex-end   右对齐<br>justify-content: center     居中<br>justify-content: space-around  容器左右有间隔，内容左右均分间隔<br>justify-content: space-between 容器左右无间隔，内容左右均分间隔</p>
-</li>
-<li><h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><p>纵轴的对齐方式，默认值填充到整个容器的高度。<br>align-items：center  垂直居中<br>align-items：flex-start 上对齐<br>align-items：flex-end   下对齐<br>align-items：stretch    填充到整个容器的高度<br>align-items：baseline   文本基线对齐</p>
-</li>
-<li><h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><p>多列的对齐方式。如果项目只有一行，该属性不起作用，默认填充到整个容器的高度。<br>align-content：flex-start：上对齐<br>align-content：flex-end：  下对齐<br>align-content：center：    垂直居中<br>align-content：space-around： 容器上下有间隔，内容上下均分间隔<br>align-content：space-between：容器上下无间隔，内容上下均分间隔<br>align-content：stretch     填充到整个容器的高度</p>
-</li>
-</ul>
-<p>&nbsp;</p>
-<h2 id="子元素"><a href="#子元素" class="headerlink" title="子元素"></a>子元素</h2><p>   子元素中的属性</p>
-<ul>
-<li><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><p>子元素排列顺序，数值越小，排列越靠前，默认为0。<br>order：0  默认0<br>order：1<br>…</p>
-</li>
-<li><h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><p>扩展子元素宽度。<br>当父元素有剩余空间时填充到子元素上。<br>属性值是父元素剩余空间的分隔的份数中当前元素占据的份额<br>flex-grow：0  默认0<br>flex-grow：1<br>flex-grow：2</p>
-<p>如果子元素flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。<br>如果其中一个子元素的flex-grow属性为2，其他子元素都为1，那么2的这个占的剩余空间将比1的多一倍。</p>
-</li>
-<li><h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p>子元素宽度缩小比例，默认为1，即如果空间不足，子元素将缩小。<br>flex-grow：1  默认1<br>flex-grow：2</p>
-<p>如果所有子元素flex-shrink属性都为1，当空间不足时，都将等比例缩小。<br>如果其中一个子元素的flex-shrink属性为0，其他子元素都为1，则空间不足时，0的不缩小。</p>
-</li>
-<li><h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p>子元素的占据的固定空间，浏览器根据这个属性，计算父容器是否有多余空间。<br>它的默认值为auto，即项目的本来大小。<br>flex-basis：auto  默认auto<br>flex-basis：200px</p>
-</li>
-<li><h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
-</li>
-<li><h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><p>单个元素的垂直对齐方式,同align-item<br>align-self： center<br>align-self： flex-start<br>align-self： flex-end<br>align-self： stretch<br>align-self： baseline</p>
-</li>
-</ul>
-<p>&nbsp;<br>简单的单元素垂直居中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&#39;partent-box&#39;&gt;</span><br><span class="line">  &lt;div&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line"> .partent-box&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: center;</span><br><span class="line">    align-items: center;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2017/12/04/Function/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Fucntion 的方法和属性
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/11/12/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git常用命令</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/01/02/JS%E6%89%A7%E8%A1%8C/" class="archive-article-date">
+  	<time datetime="2019-01-02T09:18:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-02</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/01/02/JS%E6%89%A7%E8%A1%8C/">JS执行</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -336,8 +279,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

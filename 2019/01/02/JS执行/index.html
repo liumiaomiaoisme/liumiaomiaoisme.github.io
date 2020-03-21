@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>事件event | LJ</title>
+  <title>JS执行 | LJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="事件：元素默认的操作行为，事件是否绑定行为，事件都是触发。事件绑定：给特定的行为绑定一个方法，事件触发时，会执行绑定的方法。 Dom0事件绑定：element.onClick &#x3D; function(){}给Dom元素对象的某一个事由事件属性赋值函数，当用户触发这个事件行为，就是执行绑定个的方法。只能给当前元素的某一个事件行为绑定给一个方法。重复的事件绑定会被覆盖。 Dom2事件绑定：element">
+  <meta name="description" content="JS 代码的执行一直是有很多模糊不清的地方，到底是怎么执行的。红宝书里面有讲到执行上下文，变量对象等。但是并没有具体的讲解。最近看到视频讲解的这个东东，笔记走起来！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件event">
-<meta property="og:url" content="http://yoursite.com/2020/03/21/%E4%BA%8B%E4%BB%B6event/index.html">
+<meta property="og:title" content="JS执行">
+<meta property="og:url" content="http://yoursite.com/2019/01/02/JS%E6%89%A7%E8%A1%8C/index.html">
 <meta property="og:site_name" content="LJ">
-<meta property="og:description" content="事件：元素默认的操作行为，事件是否绑定行为，事件都是触发。事件绑定：给特定的行为绑定一个方法，事件触发时，会执行绑定的方法。 Dom0事件绑定：element.onClick &#x3D; function(){}给Dom元素对象的某一个事由事件属性赋值函数，当用户触发这个事件行为，就是执行绑定个的方法。只能给当前元素的某一个事件行为绑定给一个方法。重复的事件绑定会被覆盖。 Dom2事件绑定：element">
+<meta property="og:description" content="JS 代码的执行一直是有很多模糊不清的地方，到底是怎么执行的。红宝书里面有讲到执行上下文，变量对象等。但是并没有具体的讲解。最近看到视频讲解的这个东东，笔记走起来！">
 <meta property="og:locale" content="ch">
-<meta property="article:published_time" content="2020-03-21T07:45:05.000Z">
-<meta property="article:modified_time" content="2020-03-21T08:23:43.896Z">
+<meta property="article:published_time" content="2019-01-02T09:18:40.000Z">
+<meta property="article:modified_time" content="2020-03-21T10:21:01.324Z">
 <meta property="article:author" content="LJ">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -30,7 +30,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#ad8bd2,#e8c37e);
     }
   </style>
   
@@ -66,6 +66,8 @@
 	        
 				<li><a href="/tags/vue/">vue</a></li>
 	        
+				<li><a href="/tags/React/">React</a></li>
+	        
 				<li><a href="/tags/%E7%BB%BC%E5%90%88/">综合</a></li>
 	        
 			</ul>
@@ -95,7 +97,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #ad8bd2"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -109,6 +111,8 @@
 			</hgroup>
 			
 			
+			
+				
 			
 				
 			
@@ -134,15 +138,17 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/">主页</a></li>
+					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/JS/">JS</a></li>
+					<li style="width: 16.666666666666668%"><a href="/tags/JS/">JS</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/css/">css</a></li>
+					<li style="width: 16.666666666666668%"><a href="/tags/css/">css</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/vue/">vue</a></li>
+					<li style="width: 16.666666666666668%"><a href="/tags/vue/">vue</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/%E7%BB%BC%E5%90%88/">综合</a></li>
+					<li style="width: 16.666666666666668%"><a href="/tags/React/">React</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/tags/%E7%BB%BC%E5%90%88/">综合</a></li>
 		        
 				</ul>
 			</nav>
@@ -157,62 +163,81 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-事件event" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JS执行" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      事件event
+      JS执行
     </h1>
   
 
         
-        <a href="/2020/03/21/%E4%BA%8B%E4%BB%B6event/" class="archive-article-date">
-  	<time datetime="2020-03-21T07:45:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+        <a href="/2019/01/02/JS%E6%89%A7%E8%A1%8C/" class="archive-article-date">
+  	<time datetime="2019-01-02T09:18:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>事件：元素默认的操作行为，事件是否绑定行为，事件都是触发。<br>事件绑定：给特定的行为绑定一个方法，事件触发时，会执行绑定的方法。</p>
-<h3 id="Dom0事件绑定："><a href="#Dom0事件绑定：" class="headerlink" title="Dom0事件绑定："></a>Dom0事件绑定：</h3><p>element.onClick = function(){}<br>给Dom元素对象的某一个事由事件属性赋值函数，当用户触发这个事件行为，就是执行绑定个的方法。只能给当前元素的某一个事件行为绑定给一个方法。重复的事件绑定会被覆盖。</p>
-<h3 id="Dom2事件绑定："><a href="#Dom2事件绑定：" class="headerlink" title="Dom2事件绑定："></a>Dom2事件绑定：</h3><p>element.addEventListener (‘click’,function(){},冒泡/捕获)<br>element.removeEventListener（’click’,fn,冒泡/捕获） 解绑 事件必须是同一个事件，所以应该用命名函数fn<br>基于原型链找到EventTarget.prototype.addEventListener方法执行。浏览器事件池机制完成事件绑定。</p>
-<h3 id="事件池事件队列Event-Queue"><a href="#事件池事件队列Event-Queue" class="headerlink" title="事件池事件队列Event Queue"></a>事件池事件队列Event Queue</h3><p>addEventListener向事件池不断添加内容<br>事件触发时在事件池中查找，所有匹配到的方法都是一次执行。所有可以给一个dom添加多个方法。</p>
-<table>
-<thead>
-<tr>
-<th>编号</th>
-<th>元素</th>
-<th>事件类型</th>
-<th>绑定方法</th>
-<th>传播机制</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>element</td>
-<td>click</td>
-<td>anonymous</td>
-<td>冒泡</td>
-</tr>
-<tr>
-<td>2</td>
-<td>element</td>
-<td>click</td>
-<td>anonymous2</td>
-<td>冒泡</td>
-</tr>
-</tbody></table>
-<p>同时有dom0和dom2会都执行，不会冲突，因为事件机制不同，一个是添加事件属性，一个是在事件池从添加事件。</p>
-<h3 id="事件对象：event"><a href="#事件对象：event" class="headerlink" title="事件对象：event"></a>事件对象：event</h3><p>元素事件行为被触发，方法执行时，会给绑定的方法传递一个实参，这个实参就是事件对象。事件对象是用来存储事件行为操作相关信息的对象<br>MouseEvent/TouchEvent/keyboardEvent/MouseEvent<br>事件对象和在那个方法中拿到没有关系，记录的是当前操作的信息</p>
-<p>事件对象常用属性<br>target<br>type<br>code<br>keyCode<br>clientX<br>pageX<br>preventDefault<br>stopPropagation</p>
-<h3 id="每一次事件触发，浏览器都会执行以下："><a href="#每一次事件触发，浏览器都会执行以下：" class="headerlink" title="每一次事件触发，浏览器都会执行以下："></a>每一次事件触发，浏览器都会执行以下：</h3><p>1:。捕获当前操作行为，通过创建MouseEvent等类的实例，得到事件对象event<br>2.同时该行为绑定的方法执行，并且把ev当做实参传递给每个方法，所以在每个方法中得到的事件对象是一个。<br>3.后面再重新出发该事件行为，会重新捕获本次操作的信息，用新的信息替换老的信息，以此类推。</p>
-<p>事件传播机制<br>     捕获阶段：从最外层向最里层事件源依次进行查找，可以为冒泡阶段事先计算好传播的层级路径<br>目标阶段：当前元素的相关事件行为触发。<br>冒泡传播：触发当前元素的某一个事件行为，不仅它的行为被触发，它所有的祖先元素，到window相关的事件行为都会被由内向外依次触发<br>Event.prototype原型中有记录<br>CAPTURING_PHASE：1<br>AT_TARGET：2<br>BUBBLING_PHASE:3</p>
-<p>DOM0绑定的方法，只能在目标和冒泡阶段触发执行<br>DOM2绑定的方法，可以在捕获阶段执行，第三个参数，ture</p>
-<p>mouseover/mouseout<br>鼠标在元素上<br>mouseenter/mouseleave<br>鼠标在元素盒子中，默认没有事件冒泡，有子元素的一半会用mouseenter</p>
+        <p>JS 代码的执行一直是有很多模糊不清的地方，到底是怎么执行的。<br>红宝书里面有讲到执行上下文，变量对象等。但是并没有具体的讲解。<br>最近看到视频讲解的这个东东，笔记走起来！</p>
+<a id="more"></a>
+
+
+
+
+<h3 id="ECStack-Excution-Context-Stack"><a href="#ECStack-Excution-Context-Stack" class="headerlink" title="ECStack Excution Context Stack"></a>ECStack Excution Context Stack</h3><p>执行上下文环境栈<br>代码执行都需要在ECStack中。<br>栈内存，就是用来执行代码的。</p>
+<h3 id="EC-Excution-Context-执行上下文"><a href="#EC-Excution-Context-执行上下文" class="headerlink" title="EC Excution Context 执行上下文"></a>EC Excution Context 执行上下文</h3><p>每个域都有自己的EC。<br>EC创建后会被压进栈里面执行。<br>执行完以后，如果没被其它的内容占用，那么就会出栈。<br>如果被其它的内容占用，那么会被压入栈底，等待执行。</p>
+<h3 id="GO-Global-Object-全局对象"><a href="#GO-Global-Object-全局对象" class="headerlink" title="GO Global Object 全局对象"></a>GO Global Object 全局对象</h3><p>浏览器中GO会赋值给window。Math是全局对象。</p>
+<h3 id="VO-Varibale-Object-变量对象"><a href="#VO-Varibale-Object-变量对象" class="headerlink" title="VO Varibale Object 变量对象"></a>VO Varibale Object 变量对象</h3><p>全局下的变量，就是VO。</p>
+<h3 id="AO-Activation-Object-活动变量对象"><a href="#AO-Activation-Object-活动变量对象" class="headerlink" title="AO Activation Object 活动变量对象"></a>AO Activation Object 活动变量对象</h3><p>函数的中变量，就是AO，可以看作是VO的分支。</p>
+<h3 id="变量赋值的三个步骤"><a href="#变量赋值的三个步骤" class="headerlink" title="变量赋值的三个步骤"></a>变量赋值的三个步骤</h3><ul>
+<li><p>创建变量，declair</p>
+</li>
+<li><p>创建值</p>
+<ul>
+<li><p>基本值直接在栈中创建并存储。</p>
+</li>
+<li><p>引用类型值，引用值复杂的结构，所以特殊。</p>
+<p> 需要开辟一个单独的空间储存对象中的键值对，这个空间是堆内存。<br> 每个堆内存空间都有一个可供访问的16进制地址。变量赋值时就将这个地址赋值给变量。<br> 所以，引用类型的变量存储的只是对象的堆内存地址。</p>
+</li>
+</ul>
+</li>
+<li><p>建立变量和值的关联，赋值,defined。</p>
+</li>
+</ul>
+<h3 id="创建函数和执行函数"><a href="#创建函数和执行函数" class="headerlink" title="创建函数和执行函数"></a>创建函数和执行函数</h3><h4 id="函数创建"><a href="#函数创建" class="headerlink" title="函数创建"></a>函数创建</h4><p>   函数创建，函数创建和一般变量创建的步骤是一样的。</p>
+<p>   函数也是对象，也是引用类型值，所以也会开辟新的堆内存空间。</p>
+<p>   函数名储存的是对应堆内存地址，所以也会创建函数名变量，创建堆内存空间，关联函数名和堆内存地址。</p>
+<p>   函数堆内存中会储存函数代码字符串和键值队<br>      函数代码字符串<br>      函数对象键值对<br>      length：形参个数<br>      name：函数名<br>      prototype原型…</p>
+<h4 id="函数执行-fn"><a href="#函数执行-fn" class="headerlink" title="函数执行 fn()"></a>函数执行 fn()</h4><ul>
+<li><p>创建一个新的EC执行上下文，压到ECStack中执行。</p>
+</li>
+<li><p>初始化this指向。</p>
+</li>
+<li><p>初始化作用域链，［［ScopeChain］］ = &lt;AO,VO&gt;。</p>
+</li>
+<li><p>创建函数活动变量对象 AO，用来储存变量。</p>
+<p>这里会储存的是</p>
+<ul>
+<li><p>实参集合</p>
+<p>arguments = {0:第一个实参，1:第二个实参，……}</p>
+</li>
+<li><p>创建形参并赋值</p>
+<p>形参1= ……</p>
+<p>形参2= ……</p>
+</li>
+</ul>
+</li>
+<li><p>最后自上而下执行代码</p>
+</li>
+</ul>
+<h3 id="形参和实参在非严格模式下会建立映射关系，某一个改变会影响另一个。"><a href="#形参和实参在非严格模式下会建立映射关系，某一个改变会影响另一个。" class="headerlink" title="形参和实参在非严格模式下会建立映射关系，某一个改变会影响另一个。"></a>形参和实参在非严格模式下会建立映射关系，某一个改变会影响另一个。</h3><p>严格模式下则没有映射关系，是相互独立的。</p>
+<p>ES6中的箭头函数是没有实参集合arguments的。</p>
+<p>这些都是一些概念性的东西，理解了函数一步一步是怎么执行的，更有利于在写代码时，特别是找bug是清晰的认识到是什么地方的问题。</p>
 
       
 
@@ -245,9 +270,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/01/10/react-render/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          react虚拟Dom
+        
+      </div>
+    </a>
   
-    <a href="/2020/03/21/Array/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Array数组的方法与属性</div>
+  
+    <a href="/2018/12/04/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于数据类型检测</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -381,6 +415,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
             
             <div class="clearfix"></div>

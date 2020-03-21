@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>flex布局 | LJ</title>
+  <title>Array数组的方法与属性 | LJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工作中使用定位进行布局已经非常熟悉了，以致于不习惯用flex。特地总结一下flex，希望以后能更熟练的使用这个超强属性，哈哈。妈妈再也不用担心我的vertical：middle了。">
+  <meta name="description" content="数组时实际工作中使用最多的了，交互数据的处理很多都需要用的数组。好记心，不如写一写。特别是数组操作后的返回值。这波总结不亏，哈哈。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex布局">
-<meta property="og:url" content="http://yoursite.com/2017/11/15/flex/index.html">
+<meta property="og:title" content="Array数组的方法与属性">
+<meta property="og:url" content="http://yoursite.com/2018/08/10/Array/index.html">
 <meta property="og:site_name" content="LJ">
-<meta property="og:description" content="工作中使用定位进行布局已经非常熟悉了，以致于不习惯用flex。特地总结一下flex，希望以后能更熟练的使用这个超强属性，哈哈。妈妈再也不用担心我的vertical：middle了。">
+<meta property="og:description" content="数组时实际工作中使用最多的了，交互数据的处理很多都需要用的数组。好记心，不如写一写。特别是数组操作后的返回值。这波总结不亏，哈哈。">
 <meta property="og:locale" content="ch">
-<meta property="article:published_time" content="2017-11-15T03:53:25.000Z">
-<meta property="article:modified_time" content="2020-03-21T06:17:58.878Z">
+<meta property="article:published_time" content="2018-08-10T06:42:41.000Z">
+<meta property="article:modified_time" content="2020-03-21T09:13:22.720Z">
 <meta property="article:author" content="LJ">
-<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LJ" type="application/atom+xml">
@@ -163,73 +163,134 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-flex" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Array" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      flex布局
+      Array数组的方法与属性
     </h1>
   
 
         
-        <a href="/2017/11/15/flex/" class="archive-article-date">
-  	<time datetime="2017-11-15T03:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-15</time>
+        <a href="/2018/08/10/Array/" class="archive-article-date">
+  	<time datetime="2018-08-10T06:42:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>工作中使用定位进行布局已经非常熟悉了，以致于不习惯用flex。<br>特地总结一下flex，希望以后能更熟练的使用这个超强属性，哈哈。<br>妈妈再也不用担心我的vertical：middle了。</p>
+        <p>数组时实际工作中使用最多的了，交互数据的处理很多都需要用的数组。<br>好记心，不如写一写。特别是数组操作后的返回值。<br>这波总结不亏，哈哈。</p>
 <a id="more"></a>
 
 
-<p>这里参考了很多阮一峰老师的博客内容和MDN<br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">指路阮一峰</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex" target="_blank" rel="noopener">指路MDN</a></p>
-<p>内容很多，图片也很多就不贴了，主要还是自己的理解、吸收。</p>
-<p>flex布局有很多的说法，名字（伸缩布局 弹性盒子）<br>主要涉及的是两层包裹的容器布局，即父子嵌套盒子的布局。<br>很多父子嵌套盒子的布局能用到这种方式。最明显的就是ul&gt;li 这一类了。<br>还有一些是后单独的小模块中内容需要垂直居中，或者左右分布，间隔分布，用flex都是很好的选择。</p>
-<p>下面就具体看看flex的具体内容吧<br>分两个部分，父元素和子元素。</p>
-<h2 id="父元素-display：flex"><a href="#父元素-display：flex" class="headerlink" title="父元素 display：flex"></a>父元素 display：flex</h2><p>父元素中的属性 </p>
-<ul>
-<li><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><p>设置子元素的排列方向<br>flex-direction：row 默认水平方向<br>flex-direction：column 纵向<br>flex-direction：row-reverse  水平翻转<br>flex-direction：column-reverse 纵向翻转</p>
+<h2 id="Array数组方法"><a href="#Array数组方法" class="headerlink" title="Array数组方法"></a>Array数组方法</h2><h3 id="会改变原数组的方法"><a href="#会改变原数组的方法" class="headerlink" title="会改变原数组的方法"></a>会改变原数组的方法</h3><ul>
+<li><p>copywithin(target,start,end)<br>数组内复制替换，end缺省就是到结尾最后一位。</p>
 </li>
-<li><h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p>子元素超过容器宽高是否换行<br>flex-wrap：nowrap 默认不换行<br>flex-wrap：wrap   换行<br>flex-wrap：wrap-reverse 行翻转</p>
-</li>
-<li><h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><p>前两个属性的复合写法<br>flex-flow：row nowrap默认水平不换行</p>
-</li>
-<li><h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><p>水平对齐方式<br>justify-content: flex-start 左对齐<br>justify-content: flex-end   右对齐<br>justify-content: center     居中<br>justify-content: space-around  容器左右有间隔，内容左右均分间隔<br>justify-content: space-between 容器左右无间隔，内容左右均分间隔</p>
-</li>
-<li><h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><p>纵轴的对齐方式，默认值填充到整个容器的高度。<br>align-items：center  垂直居中<br>align-items：flex-start 上对齐<br>align-items：flex-end   下对齐<br>align-items：stretch    填充到整个容器的高度<br>align-items：baseline   文本基线对齐</p>
-</li>
-<li><h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><p>多列的对齐方式。如果项目只有一行，该属性不起作用，默认填充到整个容器的高度。<br>align-content：flex-start：上对齐<br>align-content：flex-end：  下对齐<br>align-content：center：    垂直居中<br>align-content：space-around： 容器上下有间隔，内容上下均分间隔<br>align-content：space-between：容器上下无间隔，内容上下均分间隔<br>align-content：stretch     填充到整个容器的高度</p>
-</li>
-</ul>
+<li><p>fill(value,start,end)<br>填充数组end缺省就是全部</p>
 <p>&nbsp;</p>
-<h2 id="子元素"><a href="#子元素" class="headerlink" title="子元素"></a>子元素</h2><p>   子元素中的属性</p>
-<ul>
-<li><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><p>子元素排列顺序，数值越小，排列越靠前，默认为0。<br>order：0  默认0<br>order：1<br>…</p>
-</li>
-<li><h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><p>扩展子元素宽度。<br>当父元素有剩余空间时填充到子元素上。<br>属性值是父元素剩余空间的分隔的份数中当前元素占据的份额<br>flex-grow：0  默认0<br>flex-grow：1<br>flex-grow：2</p>
-<p>如果子元素flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。<br>如果其中一个子元素的flex-grow属性为2，其他子元素都为1，那么2的这个占的剩余空间将比1的多一倍。</p>
-</li>
-<li><h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p>子元素宽度缩小比例，默认为1，即如果空间不足，子元素将缩小。<br>flex-grow：1  默认1<br>flex-grow：2</p>
-<p>如果所有子元素flex-shrink属性都为1，当空间不足时，都将等比例缩小。<br>如果其中一个子元素的flex-shrink属性为0，其他子元素都为1，则空间不足时，0的不缩小。</p>
-</li>
-<li><h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p>子元素的占据的固定空间，浏览器根据这个属性，计算父容器是否有多余空间。<br>它的默认值为auto，即项目的本来大小。<br>flex-basis：auto  默认auto<br>flex-basis：200px</p>
-</li>
-<li><h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
-</li>
-<li><h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><p>单个元素的垂直对齐方式,同align-item<br>align-self： center<br>align-self： flex-start<br>align-self： flex-end<br>align-self： stretch<br>align-self： baseline</p>
 </li>
 </ul>
-<p>&nbsp;<br>简单的单元素垂直居中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&#39;partent-box&#39;&gt;</span><br><span class="line">  &lt;div&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line"> .partent-box&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: center;</span><br><span class="line">    align-items: center;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
+<p>  <strong>这几个是最最常用的啦！</strong></p>
+<ul>
+<li><p>pop      后删，返回被删除的项</p>
+</li>
+<li><p>push     后加，返回改后的数组长度</p>
+</li>
+<li><p>shift    前删, 返回被删除的项</p>
+</li>
+<li><p>unshift  前加，返回改后的数组长度</p>
+<p>&nbsp;</p>
+</li>
+<li><p>reverse<br>翻转数组,返回修改后的数组</p>
+</li>
+<li><p>sort(fn)<br>重排数组，返回修改后的数组。<br>默认由小到大，但是是比较字符串，10&lt;5,<br>接受函数 设置重拍方法升序或降序，或者随机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.sort(function(a,b)&#123;</span><br><span class="line">    return a-b</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+</li>
+<li><p>splice 数组操作</p>
+<p>作用：</p>
+</li>
+</ul>
+<p>  1.删除 （开始位置，几个）</p>
+<p>  2.插入 （开始位置，删几个，插入的（可多个））</p>
+<p>  3.替换 （开始位置，删几个，插入的（可多个））</p>
+<p>  始终返回的是数组中被删除的项，没有则为空。<br>  &nbsp;</p>
+<h3 id="不会改变原数组的方法（返回新数组或其它）"><a href="#不会改变原数组的方法（返回新数组或其它）" class="headerlink" title="不会改变原数组的方法（返回新数组或其它）"></a>不会改变原数组的方法（返回新数组或其它）</h3><ul>
+<li><p>concat<br>拼接数组，不会改变原数组，返回新的数组，参数可多个</p>
+</li>
+<li><p>join</p>
+</li>
+<li><p>slice（开始位置，结束位置不包括）<br>方法返回一个新的数组对象，原数组不会被改变。<br>一个参数就是从此开始到末尾。可以是负数，就是从后向前的索引。</p>
+</li>
+<li><p>toString</p>
+</li>
+<li><p>indexOf（查找项，从什么位置开始查）<br>从前往后查，返回查找项所在位置，没有就返回-1，匹配找到的第一个。</p>
+</li>
+<li><p>lastIndexOf（查找项，倒数什么位置开始查）<br>从后往前查，返回查找项所在位置（位置始终从前面数），没有就返回-1，匹配找到的第一个。</p>
+</li>
+<li><p>includes<br>是否包含某项，返回布尔值</p>
+</li>
+<li><p>toLocaleString</p>
+</li>
+<li><p>flat(x) 默认值是1<br>指定深度递归遍历数组返回新数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const arr1 &#x3D; [1, 2, [3, 4]];</span><br><span class="line">arr1.flat(); </span><br><span class="line">&#x2F;&#x2F; [1, 2, 3, 4]</span><br><span class="line"></span><br><span class="line">const arr2 &#x3D; [1, 2, [3, 4, [5, 6]]];</span><br><span class="line">arr2.flat();</span><br><span class="line">&#x2F;&#x2F; [1, 2, 3, 4, [5, 6]]</span><br></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+</li>
+<li><p>flatmap(fn(item,index,arr))<br>使用映射函数映射每个元素，然后将结果展平为新数组.<br>是map和flat的升级版。</p>
+</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let arr1 &#x3D; [&quot;it&#39;s Sunny in&quot;, &quot;&quot;, &quot;California&quot;];</span><br><span class="line">arr1.flatMap(x &#x3D;&gt; x.split(&quot; &quot;));</span><br><span class="line">&#x2F;&#x2F; [&quot;it&#39;s&quot;,&quot;Sunny&quot;,&quot;in&quot;, &quot;&quot;, &quot;California&quot;]</span><br></pre></td></tr></table></figure>
+<p>  &nbsp;</p>
+<ul>
+<li><p>find(fn(item,index,arr))<br>返回查找到的第一个元素的元素值,参数是一个测试方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const array1 &#x3D; [5, 12, 8, 130, 44];</span><br><span class="line"></span><br><span class="line">const isLargeNumber &#x3D; (element) &#x3D;&gt; element &gt; 13;</span><br><span class="line"></span><br><span class="line">console.log(array1.find(isLargeNumber)); &#x2F;&#x2F;130</span><br></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+</li>
+<li><p>findIndex(fn(item,index,arr))<br>返返回查找到的第一个元素的元素索引，参数是一个测试方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const array1 &#x3D; [5, 12, 8, 130, 44];</span><br><span class="line"></span><br><span class="line">const isLargeNumber &#x3D; (element) &#x3D;&gt; element &gt; 13;</span><br><span class="line"></span><br><span class="line">console.log(array1.findIndex(isLargeNumber)); &#x2F;&#x2F;130的索引值&#x3D;&gt;3</span><br></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+</li>
+</ul>
+<h3 id="遍历方法"><a href="#遍历方法" class="headerlink" title="遍历方法"></a>遍历方法</h3><p>  遍历迭代的方法参数规则都是一样的，接收两个参数，forEach（fn（element, index, array），this指向）<br>  第一个参数函数接收三个参数 fn（element, index, array）<br>  第二个参数函数this指向</p>
+<p>  特别注意这类方法的返回值是什么<br>  后添加进来的项不会调用callback，被修改的可以，被删除或从未被赋值的不调用callback</p>
+<ul>
+<li><p>forEach<br>没有返回值</p>
+</li>
+<li><p>filter<br>返回具有通过测试的元素的新数组。如果没有元素通过测试，则将返回一个空数组。</p>
+</li>
+<li><p>map<br>返回一个新数组，每个元素都是fn回调函数的结果。</p>
+</li>
+<li><p>every<br>如果每个元素满足fn回调的条件就返回true<br>否则返回false。</p>
+</li>
+<li><p>some<br>如果有元素满足fn回调的条件就返回true<br>否则返回false。</p>
+<p>这里如果数组中有某一项满足条件就可以 return true 来结束遍历</p>
+</li>
+</ul>
+<ul>
+<li><p>reduce（fn（累计器，当前值，索引，源数组），初始值）<br>方法对数组中的每个元素执行一个回调函数，将其结果汇总为单个返回值。<br>函数的返回值分配给累计器，该返回值在数组的每个迭代中被记住，并最后成为最终的单个结果值<br>初始值不传，默认数组第一个元素。<br>求和</p>
+</li>
+<li><p>reduceRight<br>从右到左</p>
+</li>
+<li><p>entries<br>该entries()方法返回一个新Array Iterator对象，该对象包含数组中每个索引的键/值对。</p>
+</li>
+<li><p>values<br>返回一个新Array Iterator对象，该对象包含数组中每个索引的值。<br>Iterator 迭代器ES6</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const array1 &#x3D; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];</span><br><span class="line">const iterator &#x3D; array1.values();</span><br><span class="line"></span><br><span class="line">for (const value of iterator) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; a</span><br><span class="line">&#x2F;&#x2F; b</span><br><span class="line">&#x2F;&#x2F; c</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>keys<br>返回一个新Array Iterator对象，该对象包含数组中每个索引的键。</p>
+</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li><p>Array.from<br>类数组转换为数组</p>
+</li>
+<li><p>Array.of<br>类数组转换为数组</p>
+</li>
+<li><p>Array.isArray<br>检测是否是数组</p>
+</li>
+</ul>
 
       
 
@@ -243,7 +304,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -262,18 +323,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/04/Function/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/21/this%E6%8C%87%E5%90%91%E7%9A%84%E5%87%A0%E7%82%B9%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Fucntion 的方法和属性
+          this指向的几点总结
         
       </div>
     </a>
   
   
-    <a href="/2017/11/12/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git常用命令</div>
+    <a href="/2018/07/30/%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">String实例方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
