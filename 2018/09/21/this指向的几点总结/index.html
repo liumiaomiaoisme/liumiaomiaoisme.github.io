@@ -6,24 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hexo</title>
+  <title>this指向的几点总结 | LJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="this的指向一直是js中的一个比较困惑的点，网上各种总结文章也很多。自己也需要做一些总结，把this指向弄清楚，才不会出现各种undefined的报错哟！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2020/03/20/hello-world/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-20T12:38:10.866Z">
-<meta property="article:modified_time" content="2020-03-20T12:38:10.867Z">
-<meta property="article:author" content="John Doe">
+<meta property="og:title" content="this指向的几点总结">
+<meta property="og:url" content="http://yoursite.com/2018/09/21/this%E6%8C%87%E5%90%91%E7%9A%84%E5%87%A0%E7%82%B9%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="LJ">
+<meta property="og:description" content="this的指向一直是js中的一个比较困惑的点，网上各种总结文章也很多。自己也需要做一些总结，把this指向弄清楚，才不会出现各种undefined的报错哟！">
+<meta property="og:locale" content="ch">
+<meta property="article:published_time" content="2018-09-21T01:07:57.000Z">
+<meta property="article:modified_time" content="2020-03-21T01:57:50.349Z">
+<meta property="article:author" content="LJ">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="LJ" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -47,19 +48,25 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="https://liumiaomiaoisme.github.io/public/img/avator.jpg" class="js-avatar">
+			<img src="/img/avator.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">LJ</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">小小的一只</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/JS/">JS</a></li>
+	        
+				<li><a href="/tags/css/">css</a></li>
+	        
+				<li><a href="/tags/vue/">vue</a></li>
+	        
+				<li><a href="/tags/%E7%BB%BC%E5%90%88/">综合</a></li>
 	        
 			</ul>
 		</nav>
@@ -89,15 +96,21 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="https://liumiaomiaoisme.github.io/public/img/avator.jpg" class="js-avatar">
+				<img src="/img/avator.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">LJ</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>小小的一只<i class="icon icon-quo-right"></i></p>
 			
 			
+				
+			
+				
+			
+				
+			
+				
 			
 				
 			
@@ -110,10 +123,18 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/JS/">JS</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/css/">css</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/vue/">vue</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/%E7%BB%BC%E5%90%88/">综合</a></li>
 		        
 				</ul>
 			</nav>
@@ -128,39 +149,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-this指向的几点总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      this指向的几点总结
     </h1>
   
 
         
-        <a href="/2020/03/20/hello-world/" class="archive-article-date">
-  	<time datetime="2020-03-20T12:38:10.866Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+        <a href="/2018/09/21/this%E6%8C%87%E5%90%91%E7%9A%84%E5%87%A0%E7%82%B9%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2018-09-21T01:07:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <p>this的指向一直是js中的一个比较困惑的点，网上各种总结文章也很多。<br>自己也需要做一些总结，把this指向弄清楚，才不会出现各种undefined的报错哟！</p>
+<a id="more"></a>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h2 id="this是什么？"><a href="#this是什么？" class="headerlink" title="this是什么？"></a>this是什么？</h2><p>MDN解释：this当前执行代码的环境对象<br>自己的理解：this是函数执行主体，可以理解为谁把函数执行的，谁就是this。</p>
+<p>&nbsp;</p>
+<h2 id="this执行的几种分类"><a href="#this执行的几种分类" class="headerlink" title="this执行的几种分类"></a>this执行的几种分类</h2><ul>
+<li><h3 id="普通函数执行"><a href="#普通函数执行" class="headerlink" title="普通函数执行"></a>普通函数执行</h3><p>普通函数执行的取决于函数前是否有”点”。 </p>
+</li>
+</ul>
+<p>   有点，点前面是谁，this就是谁。</p>
+<p>   没有点，this就是window(严格模式下是undefined)。自执行函数中的this,一般都是window。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; &#39;this is window&#39;</span><br><span class="line"></span><br><span class="line">function hello() &#123;</span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    a: &#39;this is obj&#39;,</span><br><span class="line">    hello: function hello() &#123;</span><br><span class="line">        console.log(this.a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hello()  &#x2F;&#x2F; this is window</span><br><span class="line">obj.hello() &#x2F;&#x2F; this is obj</span><br></pre></td></tr></table></figure><br>   &nbsp;</p>
+<ul>
+<li><h3 id="元素的事件行为的绑定方法。"><a href="#元素的事件行为的绑定方法。" class="headerlink" title="元素的事件行为的绑定方法。"></a>元素的事件行为的绑定方法。</h3><p>  给元素的事件行为绑定方法，<br>  事件触发，方法执行，此时方法中的this一般就是当前元素本身。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id&#x3D;&#39;dom&#39;&gt;button&lt;&#x2F;button&gt;</span><br><span class="line"></span><br><span class="line">let dom &#x3D; document.getElementById(&#39;dom&#39;)</span><br><span class="line"></span><br><span class="line">dom.onclick &#x3D; function()&#123;</span><br><span class="line">    console.log(this.innerText)  &#x2F;&#x2F; button</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> &nbsp;</p>
+</li>
+</ul>
+<ul>
+<li><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>  构造函数new执行，this指向新创建的实例。  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Person (name)&#123;</span><br><span class="line">    name: this.name;</span><br><span class="line">    home: this.home</span><br><span class="line">&#125;</span><br><span class="line">let LJ &#x3D; new Person ()</span><br><span class="line"></span><br><span class="line">LJ.name &#x3D; &#39;lj&#39;</span><br></pre></td></tr></table></figure>
+<p> &nbsp;</p>
+</li>
+<li><h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>箭头函数没有自己的this。<br>箭头函数中的this是箭头函数创建时当前上下文中的this。<br>如果当前上下文没有this就会向上寻找。<br>所以利用箭头函数的特性可以固定this的指向。</p>
+<p>&nbsp;</p>
+</li>
+<li><h3 id="函数this被bind-call-apply强制修改，以修改后指向为准。"><a href="#函数this被bind-call-apply强制修改，以修改后指向为准。" class="headerlink" title="函数this被bind,call,apply强制修改，以修改后指向为准。"></a>函数this被bind,call,apply强制修改，以修改后指向为准。</h3><p> 箭头函数是创建时就已经确定了this，又由于箭头函数本身没有this，所以使用call等方法也无法改变其this指向，第一个参数将被忽略。</p>
+<p> 普通函数则是执行是才明确this。</p>
+</li>
+</ul>
 
       
 
@@ -169,61 +206,21 @@
     <div class="article-info article-info-index">
       
       
-      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/20/hello-world/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
@@ -267,17 +264,6 @@
   
   
   
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://yoursite.com/2020/03/20/hello-world/", 
-    sourceId: "hello-world",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-  
 
   
 
@@ -293,7 +279,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 John Doe
+    		&copy; 2020 LJ
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
