@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/9 | LJ</title>
+  <title>关于数据类型检测 | LJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LJ">
-<meta property="og:url" content="http://yoursite.com/archives/2018/09/index.html">
+  <meta name="description" content="数据类型的几种方法适用于什么情况的总结，参考JQuery中的检测数据类型方法，可以将几种方法结合，写一个自己的数据类型检测方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于数据类型检测">
+<meta property="og:url" content="http://yoursite.com/2018/12/04/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/index.html">
 <meta property="og:site_name" content="LJ">
+<meta property="og:description" content="数据类型的几种方法适用于什么情况的总结，参考JQuery中的检测数据类型方法，可以将几种方法结合，写一个自己的数据类型检测方法。">
 <meta property="og:locale" content="ch">
+<meta property="article:published_time" content="2018-12-04T05:07:57.000Z">
+<meta property="article:modified_time" content="2020-03-21T03:51:06.351Z">
 <meta property="article:author" content="LJ">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LJ" type="application/atom+xml">
@@ -148,36 +153,81 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据类型检测" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/21/this%E6%8C%87%E5%90%91%E7%9A%84%E5%87%A0%E7%82%B9%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2018-09-21T01:07:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/21/this%E6%8C%87%E5%90%91%E7%9A%84%E5%87%A0%E7%82%B9%E6%80%BB%E7%BB%93/">this指向的几点总结</a>
+    <h1 class="article-title" itemprop="name">
+      关于数据类型检测
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/12/04/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/" class="archive-article-date">
+  	<time datetime="2018-12-04T05:07:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  数据类型的几种方法适用于什么情况的总结，参考JQuery中的检测数据类型方法，可以将几种方法结合，写一个自己的数据类型检测方法。</p>
+<a id="more"></a>
+
+<h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof ()"></a>typeof ()</h3><p> 返回结果为字符串。<br>    这个方法适用于基本类型的检测，引用类型检测只能反映出是对象，不能检测出具体是什么类型的对象。</p>
+<ul>
+<li>基本类型    <ul>
+<li>string,number,boolean,undefined可以正确检测。      </li>
+<li>null检测结果是object。null是空对象指针，变量不指向任何对象。需要回收的对象就设置为null。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>引用类型</p>
+<ul>
+<li>对象，数组，正则，日期检测结果都是object。</li>
+<li>函数检测结果是function。</li>
+</ul>
+</li>
+<li><p>Symbol检测结果就是symbol。</p>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof ()"></a>instanceof ()</h3><p> 检测实例是否属于某个类。返回结果是true/false。<br> 只要是原型链上的类都会返回true。<br> 原型prototype/<strong>proto</strong>的指向可能被改变，检测结果不准确。<br> 基本类型值返回结果都是false，不适用。</p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor ()"></a>constructor ()</h3><p> 类似于instanceof。返回也是true/false。<br> 由于constructor也可以改写，所以检测结果也不准确。</p>
+<h3 id="Object-prototype-toString-call"><a href="#Object-prototype-toString-call" class="headerlink" title="Object.prototype.toString.call()"></a>Object.prototype.toString.call()</h3><p> 检测实例所属的类。<br> 检测数据类型最准确的方法，基本类型，引用类型都适用。<br> 返回结果是”[object 所属类信息]”。<br> 可以是[object Object/Array/RegExp/Function/String/Number/Boolean/Null/Undefined/Symbol]<br> 即使prototype原型被改写也不会影响判断。</p>
+<p> 补充：<br> String,Number,Boolean,Symbol原型上都有这两个方法:  </p>
+</li>
+<li><p>toString:转换为字符串</p>
+</li>
+<li><p>valueof:返回原始值</p>
+</li>
+</ul>
+<p>Array,RegExp,Function原型上都有这个方法:</p>
+<ul>
+<li>toString:转换为字符串</li>
+</ul>
+<p>Object原型上都有这两个方法: </p>
+<ul>
+<li>toString:当前实例所属的类</li>
+<li>valueof:返回原始值</li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="综上结合Jquery-的检测数据类型方法可以总结下"><a href="#综上结合Jquery-的检测数据类型方法可以总结下" class="headerlink" title="综上结合Jquery 的检测数据类型方法可以总结下"></a>综上结合Jquery 的检测数据类型方法可以总结下</h2><ul>
+<li>null和undefined直接返回</li>
+<li>基本类型使用typeof检测</li>
+<li>对象object.prototype.toString检测<ul>
+<li>将object.prototype.toString返回的所有类型写成一个对象的属性，如果检测出是这些属性中的就返回</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">~function() &#123;</span><br><span class="line">  let objType &#x3D; &#123;&#125; </span><br><span class="line">  let toString &#x3D; &#123;&#125;.__proto__.toString &#x2F;&#x2F; 简写toString方法，JQ里面写的更加复杂一丢丢</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 对象objType中把返回的类型全部作为键值对添加进来</span><br><span class="line">    &#x2F;&#x2F; objType &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F;    [object Array]: &quot;array&quot;</span><br><span class="line">    &#x2F;&#x2F;    [object Boolean]: &quot;boolean&quot;</span><br><span class="line">    &#x2F;&#x2F;    [object Date]: &quot;date&quot;</span><br><span class="line">    &#x2F;&#x2F;    [object Function]: &quot;function&quot;</span><br><span class="line">    &#x2F;&#x2F;    [object Number]: &quot;number&quot;</span><br><span class="line">    &#x2F;&#x2F;    [object Object]: &quot;object&quot;</span><br><span class="line">    &#x2F;&#x2F;    [object RegExp]: &quot;regexp&quot;</span><br><span class="line">    &#x2F;&#x2F;    [object String]: &quot;string&quot;</span><br><span class="line">    &#x2F;&#x2F;    [object Symbol]: &quot;symbol&quot;</span><br><span class="line">    &#x2F;&#x2F; &#125; </span><br><span class="line">  &quot;String Number Boolean Symbol Function Array Date RegExp Object&quot;.split(&quot; &quot;).forEach((item) &#x3D;&gt; &#123;</span><br><span class="line">     objType[&#39;[object &#39; + item + &#39;]&#39;] &#x3D; item.toLowerCase()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  function typeTest (obj) &#123;</span><br><span class="line">    &#x2F;&#x2F; 如果是null或者undefined 直接返回</span><br><span class="line">    if (obj &#x3D;&#x3D; null) &#123;</span><br><span class="line">      return obj + &#39;&#39;  &#x2F;&#x2F;这里将返回值转换为字符串</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 用typeof检测是不是对象或者函数，不是的话就是基本类型可以typeof检测</span><br><span class="line">    if (typeof obj !&#x3D;&#x3D; &#39;object&#39; &amp;&amp; typeof obj !&#x3D;&#x3D; &#39;function&#39;) &#123;</span><br><span class="line">      return typeof obj  </span><br><span class="line">    &#125; </span><br><span class="line">    else &#123;</span><br><span class="line">      &#x2F;&#x2F; 是对象那么就用toString方法的结果作为objType的属性返回属性值</span><br><span class="line">      &#x2F;&#x2F; 这里还有一点，如果是没有的类型，也就是自己的构造函数的实例对象之类的在objType中是没有的，那么直接返回object就可以了。</span><br><span class="line">      return objType[toString.call(obj)] || &#39;object&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -189,19 +239,64 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/08/10/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E4%BA%8E%E5%A4%9A%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E5%AF%B9%E6%AF%94/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          单页面应用与多页面应用对比
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/09/21/this%E6%8C%87%E5%90%91%E7%9A%84%E5%87%A0%E7%82%B9%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">this指向的几点总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -231,8 +326,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
