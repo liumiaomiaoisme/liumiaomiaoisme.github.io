@@ -16,7 +16,7 @@
 <meta property="og:description" content="this的指向一直是js中的一个比较困惑的点，网上各种总结文章也很多。自己也需要做一些总结，把this指向弄清楚，才不会出现各种undefined的报错哟！">
 <meta property="og:locale" content="ch">
 <meta property="article:published_time" content="2018-09-21T01:07:57.000Z">
-<meta property="article:modified_time" content="2020-03-21T01:57:50.349Z">
+<meta property="article:modified_time" content="2020-03-22T01:52:40.464Z">
 <meta property="article:author" content="LJ">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -193,16 +193,16 @@
 </li>
 </ul>
 <p>   有点，点前面是谁，this就是谁。</p>
-<p>   没有点，this就是window(严格模式下是undefined)。自执行函数中的this,一般都是window。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; &#39;this is window&#39;</span><br><span class="line"></span><br><span class="line">function hello() &#123;</span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    a: &#39;this is obj&#39;,</span><br><span class="line">    hello: function hello() &#123;</span><br><span class="line">        console.log(this.a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hello()  &#x2F;&#x2F; this is window</span><br><span class="line">obj.hello() &#x2F;&#x2F; this is obj</span><br></pre></td></tr></table></figure><br>   &nbsp;</p>
+<p>   没有点，this就是window(严格模式下是undefined)。自执行函数中的this,一般都是window。<br>   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'this is window'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="string">'this is obj'</span>,</span><br><span class="line">    hello: <span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hello()  <span class="comment">// this is window</span></span><br><span class="line">obj.hello() <span class="comment">// this is obj</span></span><br></pre></td></tr></table></figure><br>   &nbsp;</p>
 <ul>
 <li><h3 id="元素的事件行为的绑定方法。"><a href="#元素的事件行为的绑定方法。" class="headerlink" title="元素的事件行为的绑定方法。"></a>元素的事件行为的绑定方法。</h3><p>  给元素的事件行为绑定方法，<br>  事件触发，方法执行，此时方法中的this一般就是当前元素本身。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id&#x3D;&#39;dom&#39;&gt;button&lt;&#x2F;button&gt;</span><br><span class="line"></span><br><span class="line">let dom &#x3D; document.getElementById(&#39;dom&#39;)</span><br><span class="line"></span><br><span class="line">dom.onclick &#x3D; function()&#123;</span><br><span class="line">    console.log(this.innerText)  &#x2F;&#x2F; button</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id=<span class="string">'dom'</span>&gt;button&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">let dom = document.getElementById('dom')</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">dom.onclick = function()&#123;</span></span><br><span class="line"><span class="regexp">    console.log(this.innerText)  /</span><span class="regexp">/ button</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 <p> &nbsp;</p>
 </li>
 </ul>
 <ul>
 <li><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>  构造函数new执行，this指向新创建的实例。  </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Person (name)&#123;</span><br><span class="line">    name: this.name;</span><br><span class="line">    home: this.home</span><br><span class="line">&#125;</span><br><span class="line">let LJ &#x3D; new Person ()</span><br><span class="line"></span><br><span class="line">LJ.name &#x3D; &#39;lj&#39;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name</span>)</span>&#123;</span><br><span class="line">    name: <span class="keyword">this</span>.name;</span><br><span class="line">    home: <span class="keyword">this</span>.home</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> LJ = <span class="keyword">new</span> Person ()</span><br><span class="line"></span><br><span class="line">LJ.name = <span class="string">'lj'</span></span><br></pre></td></tr></table></figure>
 <p> &nbsp;</p>
 </li>
 <li><h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>箭头函数没有自己的this。<br>箭头函数中的this是箭头函数创建时当前上下文中的this。<br>如果当前上下文没有this就会向上寻找。<br>所以利用箭头函数的特性可以固定this的指向。</p>
@@ -393,6 +393,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>

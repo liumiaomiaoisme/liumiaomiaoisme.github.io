@@ -16,7 +16,7 @@
 <meta property="og:description" content="交互效果最重要的内容就是事件的啦。监听到用户对元素的操作反馈响应的数据才能达到交互的效果。现在就来梳理一下事件吧。红宝书+搜索+MDN参考笔记">
 <meta property="og:locale" content="ch">
 <meta property="article:published_time" content="2018-10-05T07:45:05.000Z">
-<meta property="article:modified_time" content="2020-03-21T09:12:41.153Z">
+<meta property="article:modified_time" content="2020-03-22T01:54:01.416Z">
 <meta property="article:author" content="LJ">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -187,10 +187,10 @@
 <a id="more"></a>
 
 <h3 id="事件的基本概念"><a href="#事件的基本概念" class="headerlink" title="事件的基本概念"></a>事件的基本概念</h3><p>事件是默认的操作行为，事件是否绑定行为，事件都会触发。<br>事件绑定：给特定的行为绑定一个方法，事件触发时，会执行绑定的方法。</p>
-<h3 id="Dom0事件绑定："><a href="#Dom0事件绑定：" class="headerlink" title="Dom0事件绑定："></a>Dom0事件绑定：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element.onclick &#x3D; function()&#123;</span><br><span class="line">    console.log(&#39;click啦&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Dom0事件绑定："><a href="#Dom0事件绑定：" class="headerlink" title="Dom0事件绑定："></a>Dom0事件绑定：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'click啦'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>给Dom元素对象的某一个事件属性赋值函数，当用户触发这个事件行为，就是执行绑定个的方法。<br>只能给当前元素的某一个事件行为绑定给一个方法。<br>重复的事件绑定会被覆盖，这相当于重新给这个对象属性赋值了一个新的方法。</p>
 <p>&nbsp;</p>
-<h3 id="Dom2事件绑定："><a href="#Dom2事件绑定：" class="headerlink" title="Dom2事件绑定："></a>Dom2事件绑定：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener (&#39;click&#39;,function()&#123;&#125;,冒泡false&#x2F;捕获true阶段执行)</span><br><span class="line">element.removeEventListener(&#39;click&#39;,fn,冒泡false&#x2F;捕获true阶段执行)</span><br></pre></td></tr></table></figure>
+<h3 id="Dom2事件绑定："><a href="#Dom2事件绑定：" class="headerlink" title="Dom2事件绑定："></a>Dom2事件绑定：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener (<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,冒泡<span class="literal">false</span>/捕获<span class="literal">true</span>阶段执行)</span><br><span class="line">element.removeEventListener(<span class="string">'click'</span>,fn,冒泡<span class="literal">false</span>/捕获<span class="literal">true</span>阶段执行)</span><br></pre></td></tr></table></figure>
 <p>基于原型链找到EventTarget.prototype.addEventListener这个方法执行。<br>这个方法有三个参数，事件类型，回调函数，在什么阶段执行，一般是false冒泡阶段执行</p>
 <p>事件的解绑、事件必须是同一个事件，所以应该用命名函数fn，不然解绑不了。<br>浏览器事件池机制完成事件绑定。</p>
 <p>&nbsp;</p>
@@ -262,11 +262,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/04/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/10/30/vue%E7%BB%84%E4%BB%B6%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          关于数据类型检测
+          VUE组件化
         
       </div>
     </a>
@@ -411,6 +411,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>
